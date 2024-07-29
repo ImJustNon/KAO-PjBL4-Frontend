@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page Title -->
+    <title>Kidnap Project - Your kids are mine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Daisy UI (Tailwind Plugin) -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Custom CSS File -->
+    <link rel="stylesheet" href="/index.css">
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Custom JS File -->
+    <script src="/index.js"></script>
+</head>
+<body class="bg-cover bg-[url('/assets/hee.jpg')]">
+    <div class="min-h-screen flex flex-col items-center">
+        <div class="w-full flex flex-col grow bg-white md:max-w-md">
+            <div class="bg-[#f76418] p-4 flex items-center gap-3 shadow-lg">
+                <!-- Nav Title -->
+                <div class="font-medium text-2xl text-white w-full text-center">Kidnap Project - Your kid is mine</div>
+            </div>
+            <div class="flex flex-col px-4 py-2 my-auto">
+                <!-- Title -->
+                <div class="font-medium text-3xl text-center mb-14">Register Student's Info</div>
+                <div class="w-full flex flex-col gap-y-5 mt-5">
+                    <!-- Student ID -->
+                    <div class="flex flex-col gap-2">
+                        <div class="text-xl pl-3">Student's ID Number</div>
+                        <input type="text" maxlength="11" inputmode="numeric" pattern="\d{1,11}" class="input input-bordered input-warning w-full text-center shadow-md" placeholder="Please fill student's ID number" id="input_student_id" />
+                    </div>
+                    <!-- Student Firstname -->
+                    <div class="flex flex-col gap-2">
+                        <div class="text-xl pl-3">Prefix and Firstname</div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <!-- Prefix -->
+                            <div class="col-span-1 input input-bordered input-warning w-full relative cursor-pointer group items-center flex shadow-md" onclick="handleOpenPrefixDropdown()" id="prefix_box">
+                                <span class="text-md text-gray text-center w-full text-[#ababab] cursor-pointer mr-2" id="prefix_title">Prefix</span><i class="fa-solid fa-chevron-down"></i>
+                                <div class="hidden absolute flex-col top-[55px] left-0 rounded-md bg-white w-full border-2 border-solid border-[#ffbe00] px-1 py-1 gap-1 shadow-xl" id="prefix_dropdown">
+                                    <div class="text-center cursor-pointer hover:bg-[#e3e3e3] active:bg-[#c4c4c4] rounded-md py-2 duration-300" onclick="handleSelectedPrefix('girl')">
+                                        Miss (Girl)
+                                    </div>
+                                    <div class="text-center cursor-pointer hover:bg-[#e3e3e3] active:bg-[#c4c4c4] rounded-md py-2 duration-300" onclick="handleSelectedPrefix('boy')">
+                                        Master (Boy)
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="input_student_prefix">
+                            <!-- Firstname -->
+                            <input type="text" class="col-span-2 input input-bordered input-warning w-full text-center shadow-md" placeholder="Please fill student's firstname" id="input_student_firstname" />
+                        </div>
+                    </div>
+                    <!-- Student Lastname -->
+                    <div class="flex flex-col gap-2">
+                        <div class="text-xl pl-3">Lastname</div>
+                        <input type="text" class="input input-bordered input-warning w-full text-center shadow-md" placeholder="Please fill student's lastname" id="input_student_lastname" />
+                    </div>
+                    <!-- Student Nickname -->
+                    <div class="flex flex-col gap-2">
+                        <div class="text-xl pl-3">Nickname</div>
+                        <input type="text" class="input input-bordered input-warning w-full text-center shadow-md" placeholder="Please fill student's nickname" id="input_student_nickname" />
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <div class="text-center bg-[#ff7930] w-fit mx-auto mt-5 text-2xl px-20 py-2 text-white rounded-lg cursor-pointer hover:bg-[#ff9c66] active:bg-[#ffb38a] duration-300 shadow-xl" onclick="handleSubmit()">Register</div>
+                <!-- Alert Modal -->
+                <dialog id="infoModal" class="modal modal-bottom md:modal-middle">
+                    <div class="modal-box">
+                        <div class="flex flex-col gap-2">
+                            <span class="mx-auto" id="modal_icon"></span>
+                            <div class="text-3xl font-medium text-center mt-3" id="modal_title"></div>
+                            <div class="text-xl font-medium text-center" id="modal_description"></div>
+                        </div>
+                        <div class="modal-action">
+                            <form method="dialog">
+                                <button class="btn">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+            </div>
+        </div>
+    </div>
+    <!-- ไม่รุ้เเต่ใส่เเล้วใช้ได้ ;) -->
+    <script>
+        function handleOpenModal(){
+            infoModal.showModal();
+        }
+    </script>
+</body>
+</html>
