@@ -45,7 +45,7 @@ async function handleSubmit(){
     }
     catch(e){
         console.log(e);
-        modalIcon.innerHTML = `<i class="fa-solid fa-circle-xmark text-[#eb7171]"></i>`;
+        modalIcon.innerHTML = `<i class="fa-solid fa-circle-xmark fa-6x text-[#eb7171]"></i>`;
         modalTitle.innerHTML = "Somthing went Wrong";
         modalDescription.innerHTML = e;      
         handleOpenModal(); 
