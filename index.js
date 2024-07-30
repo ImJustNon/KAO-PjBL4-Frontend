@@ -18,7 +18,7 @@ async function handleSubmit(){
     if(!inputStudentId.value || !inputStudentFirstname.value || !inputStudentLastname.value || !inputStudentNickname.value || !inputStudentPrefix.value) return;
 
     try{
-        const response = await axios.post("http://127.0.0.1:9999/api/v1/student/register", {
+        const response = await axios.post("https://kao-pjbl4-backend.vercel.app/api/v1/student/register", {
             studentId: inputStudentId.value,
             studentPrefix: inputStudentPrefix.value,
             studentFirstname: inputStudentFirstname.value,
