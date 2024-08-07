@@ -28,7 +28,7 @@
 <body class="bg-cover bg-[url('assets/hee.jpg')]">
     <div class="min-h-screen flex flex-col items-center">
         <div class="w-full flex flex-col grow bg-white md:max-w-md">
-            <div class="bg-[#f76418] p-4 flex flex-row items-center justify-center gap-3 shadow-lg">
+            <div class="bg-[#3489eb] p-4 flex flex-row items-center justify-center gap-3 shadow-xl">
                 <!-- Nav Title -->
                 <img class="w-14 h-14 ml-3" src="assets/logo.png" />
                 <div class="font-medium text-lg text-white w-full text-start">Notification System of Picking-up and Dropping-off Students Via LINE Notify</div>
@@ -40,16 +40,16 @@
                     <!-- Student ID -->
                     <div class="flex flex-col gap-2">
                         <div class="text-xl pl-3">Student's ID Number</div>
-                        <input type="text" maxlength="11" inputmode="numeric" pattern="\d{1,11}" class="input input-bordered input-warning w-full text-center shadow-md bg-white" placeholder="Please fill student's ID number" id="input_student_id" />
+                        <input type="text" maxlength="11" inputmode="numeric" pattern="\d{1,11}" class="input input-bordered input-primary w-full text-center shadow-md bg-white" placeholder="Please fill student's ID number" id="input_student_id" />
                     </div>
                     <!-- Student Firstname -->
                     <div class="flex flex-col gap-2">
                         <div class="text-xl pl-3">Prefix and Firstname</div>
                         <div class="grid grid-cols-3 gap-2">
                             <!-- Prefix -->
-                            <div class="col-span-1 input input-bordered input-warning w-full relative cursor-pointer group items-center flex shadow-md bg-white" onclick="handleOpenPrefixDropdown()" id="prefix_box">
+                            <div class="col-span-1 input input-bordered input-primary w-full relative cursor-pointer group items-center flex shadow-md bg-white" onclick="handleOpenPrefixDropdown()" id="prefix_box">
                                 <span class="text-md text-gray text-center w-full text-[#ababab] cursor-pointer mr-2" id="prefix_title">Prefix</span><i class="fa-solid fa-chevron-down"></i>
-                                <div class="hidden absolute flex-col top-[55px] left-0 rounded-md bg-white w-full border-2 border-solid border-[#ffbe00] px-1 py-1 gap-1 shadow-xl" id="prefix_dropdown">
+                                <div class="hidden absolute flex-col top-[55px] left-0 rounded-md bg-white w-full border-2 border-solid border-[#014694] px-1 py-1 gap-1 shadow-xl" id="prefix_dropdown">
                                     <div class="text-center cursor-pointer hover:bg-[#e3e3e3] active:bg-[#c4c4c4] rounded-md py-2 duration-300" onclick="handleSelectedPrefix('girl')">
                                         Miss (Girl)
                                     </div>
@@ -60,22 +60,22 @@
                             </div>
                             <input type="hidden" id="input_student_prefix">
                             <!-- Firstname -->
-                            <input type="text" class="col-span-2 input input-bordered input-warning w-full text-center shadow-md bg-white" placeholder="Please fill student's firstname" id="input_student_firstname" />
+                            <input type="text" class="col-span-2 input input-bordered input-primary w-full text-center shadow-md bg-white" placeholder="Please fill student's firstname" id="input_student_firstname" />
                         </div>
                     </div>
                     <!-- Student Lastname -->
                     <div class="flex flex-col gap-2">
                         <div class="text-xl pl-3">Lastname</div>
-                        <input type="text" class="input input-bordered input-warning w-full text-center shadow-md bg-white" placeholder="Please fill student's lastname" id="input_student_lastname" />
+                        <input type="text" class="input input-bordered input-primary w-full text-center shadow-md bg-white" placeholder="Please fill student's lastname" id="input_student_lastname" />
                     </div>
                     <!-- Student Nickname -->
                     <div class="flex flex-col gap-2">
                         <div class="text-xl pl-3">Nickname</div>
-                        <input type="text" class="input input-bordered input-warning w-full text-center shadow-md bg-white" placeholder="Please fill student's nickname" id="input_student_nickname" />
+                        <input type="text" class="input input-bordered input-primary w-full text-center shadow-md bg-white" placeholder="Please fill student's nickname" id="input_student_nickname" />
                     </div>
                 </div>
                 <!-- Submit Button -->
-                <div class="text-center bg-[#ff7930] w-fit mx-auto mt-5 text-2xl px-20 py-2 text-white rounded-lg cursor-pointer hover:bg-[#ff9c66] active:bg-[#ffb38a] duration-300 shadow-xl" onclick="handleSubmit()">Register</div>
+                <div class="text-center bg-[#0777f7] w-fit mx-auto mt-5 text-2xl px-20 py-2 text-white rounded-lg cursor-pointer hover:bg-[#64a8f5] active:bg-[#a2ccfc] duration-300 shadow-xl" onclick="handleSubmit()">Register</div>
                 <!-- Alert Modal -->
                 <dialog id="infoModal" class="modal modal-bottom md:modal-middle">
                     <div class="modal-box">
